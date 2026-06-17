@@ -48,7 +48,6 @@ func isiDataDummy() {
 }
 
 func cekIDDuplikat(idBaru int) bool {
-	//  cek id biar gada yg duplikat karna idbuku harus beda
 
 	var i int
 
@@ -62,7 +61,7 @@ func cekIDDuplikat(idBaru int) bool {
 	return false
 }
 
-func inputTahun() int { // validasi input jadi harus angka gaboleh string
+func inputTahun() int {
 	var tahunString string
 	var tahun int
 	var valid bool
@@ -102,9 +101,8 @@ func inputTahun() int { // validasi input jadi harus angka gaboleh string
 }
 
 func tambahBuku() {
-	// tambah data buku baru (eel)
 
-	if jumlahData >= 100 { // kondisi jika buku sdh diinput 100, perlu ditanyakan dl
+	if jumlahData >= 100 {
 		fmt.Println("Kapasitas buku penuh")
 		return
 	}
@@ -120,7 +118,7 @@ func tambahBuku() {
 		if idBaru <= 0 {
 			fmt.Println("ID harus lebih dari 0")
 		} else if cekIDDuplikat(idBaru) {
-			fmt.Println("ID sudah digunakan")
+			fmt.Println("ID sudah digunakan, silakan masukkan ID lain")
 		} else {
 			break
 		}
@@ -166,7 +164,6 @@ func tambahBuku() {
 }
 
 func tampilBuku() {
-	// nampilin seluruh data buku (@jebb_24)
 
 	var i int
 
@@ -193,7 +190,6 @@ func tampilBuku() {
 }
 
 func sequentialSearch() {
-	// sequential search cari judul buku (eel)
 
 	var cari string
 	var i int
@@ -205,7 +201,7 @@ func sequentialSearch() {
 
 	for i = 0; i < jumlahData; i++ {
 
-		if strings.ToLower(dataBuku[i].judul) == strings.ToLower(cari) { // untuk cari tipe string jd bs capslock atau ga
+		if strings.ToLower(dataBuku[i].judul) == strings.ToLower(cari) {
 
 			fmt.Println("Data ditemukan")
 			fmt.Println("========================")
@@ -226,7 +222,6 @@ func sequentialSearch() {
 }
 
 func selectionSort() {
-	// selection sort ascending tahun terbit (@jebb_24)
 
 	var i, j, min int
 	var temp Buku
@@ -251,7 +246,6 @@ func selectionSort() {
 }
 
 func insertionSort() {
-	// insertion sort descending tahun terbit (eel)
 
 	var i, j int
 	var temp Buku
@@ -273,7 +267,7 @@ func insertionSort() {
 	fmt.Println("Data berhasil diurutkan descending")
 }
 
-func urutkanID() { // urutkan data berdasarkan id terlebih dahulu
+func urutkanID() {
 	var i, j int
 	var temp Buku
 
@@ -291,7 +285,6 @@ func urutkanID() { // urutkan data berdasarkan id terlebih dahulu
 }
 
 func binarySearch() {
-	// binary search berdasarkan ID buku (bisa digunakan pada data yg sdh urut)
 
 	urutkanID()
 
@@ -338,7 +331,6 @@ func binarySearch() {
 }
 
 func editBuku() {
-	// mengubah data buku berdasarkan ID (eel)
 
 	var idEdit int
 	var i int
@@ -397,7 +389,6 @@ func editBuku() {
 }
 
 func hapusBuku() {
-	// menghapus data buku berdasarkan ID (@jebb_24)
 
 	var idHapus int
 	var i, j int
@@ -430,7 +421,6 @@ func hapusBuku() {
 }
 
 func statistikBuku() {
-	// menghitung statistik buku dan kategori (eel)
 
 	var tersedia int
 	var dipinjam int
@@ -482,14 +472,8 @@ func statistikBuku() {
 func main() {
 
 	var pilihan int = -1
-	var eel int
-	var jebb_24 string
 
-	eel = 24
-	jebb_24 = "SiPerpus"
-
-	fmt.Println("Selamat datang di", jebb_24)
-	fmt.Println("Kode bonus:", eel)
+	fmt.Println("Selamat datang di SiPerpus")
 
 	isiDataDummy()
 
